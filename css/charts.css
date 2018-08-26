@@ -1,0 +1,23 @@
+
+#select{
+    font-size: 18px;
+    font-weight: bold;
+   
+}
+#select li{
+    text-decoration: none;  /*去掉前面的圆点*/
+    list-style: none;
+    float: center;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+}
+
+#main{
+    margin:auto;
+}
+.table tr{
+    text-align: center
+}
+.col-xs-6{
+   text-align:center;
+}
