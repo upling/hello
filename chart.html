@@ -17,15 +17,6 @@
 <body>
     <div class="container">
         <div id="li_list">
-            <!--
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active" id="li_1"><a>体重</a></li>
-                <li role="presentation" id="li_2"><a>脂肪率</a></li>
-                <li role="presentation" id="li_3"><a>肌肉量</a></li>
-                <li role="presentation" id="li_4"><a>水分率</a></li>
-                <li role="presentation" id="li_5"><a>骨量</a></li>
-            </ul>
-            -->
             <ul>
                 <li class="li_click">体重</li>
                 <li>脂肪率</li>
@@ -39,43 +30,36 @@
         <div id="charts_box">
             <div id="main"></div>
         </div>
-        <!--
-        <div class="table-responsive">
-            <table class="table">
-                <tr>
-                    <td>30</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>累计记录天数</td>
-                    <td>体重变化量(%)</td>
-                </tr>
-                <tr>
-                    <td>50</td>
-                    <td>40</td>
-                </tr>
-                <tr>
-                    <td>最高体重(kg)</td>
-                    <td>最低体重(kg)</td>
-                </tr>
-            </table>
+        <div id="cut_off">
+            <ul class="nav nav-list">
+                <li class="divider"></li>
+            </ul>
         </div>
-        -->
-        <div class="row">
-            <div class="col-xs-6">30</div>
-            <div class="col-xs-6">10</div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">累计记录天数</div>
-            <div class="col-xs-6">体重变化量(%)</div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">50</div>
-            <div class="col-xs-6">40</div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">最高体重(kg)</div>
-            <div class="col-xs-6">最低体重(kg)</div>
+        <div>
+            <div class="row">
+                <div class="col-xs-6">30</div>
+                <div class="col-xs-6">10</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">累计记录天数
+                    <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                </div>
+                <div class="col-xs-6">体重变化量(%)
+                    <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">50</div>
+                <div class="col-xs-6">40</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">最高体重(kg)
+                    <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+                </div>
+                <div class="col-xs-6">最低体重(kg)
+                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                </div>
+            </div>
         </div>
     </div>
     <script>

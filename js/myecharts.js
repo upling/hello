@@ -60,7 +60,6 @@ function DrawWeight(yData, xData, yAxisName) {
 }
 //重量
 function ChartWeight() {
-    addClass(0);
     var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
@@ -71,8 +70,7 @@ function ChartWeight() {
 }
 //脂肪率
 function ChartFat() {
-    addClass(1);
-    var ydata = []; 
+    var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
         ydata.push(30 + Math.random().toFixed(2));
@@ -84,7 +82,6 @@ function ChartFat() {
 
 //肌肉量
 function ChartMusle() {
-    addClass(2);
     var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
@@ -99,7 +96,6 @@ function ChartMusle() {
 //水分率
 function ChartWater() {
 
-    addClass(3);
     var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
@@ -113,7 +109,7 @@ function ChartWater() {
 
 //骨量
 function ChartBound() {
-    addClass(4);
+    
     var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
@@ -124,32 +120,28 @@ function ChartBound() {
     myChart.setOption(DrawWeight(ydata, xdata, "骨量"));
 }
 
-/*
-document.getElementById("li_1").addEventListener("click", ChartWeight, false)
-document.getElementById("li_2").addEventListener("click", ChartFat, false)
-document.getElementById("li_3").addEventListener("click", ChartMusle, false)
-document.getElementById("li_4").addEventListener("click", ChartWater, false)
-document.getElementById("li_5").addEventListener("click", ChartBound, false)
-*/
+//添加监听事件
+function addListener() {
+    var li_arr = document.getElementsByTagName("li");
+    li_arr[0].addEventListener("click", ChartWeight, false)
+    li_arr[1].addEventListener("click", ChartFat, false)
+    li_arr[2].addEventListener("click", ChartMusle, false)
+    li_arr[3].addEventListener("click", ChartWater, false)
+    li_arr[4].addEventListener("click", ChartBound, false)
+}
+
 ChartWeight();
+addListener();
+
+//窗口变化
 window.onresize = function () {
     docChart.style.width = (document.body.clientWidth)
     docChart.style.height = '300px'
     myChart.resize();
 }
 
-function addClass(num) {
-    var li_list = document.getElementsByTagName("li");
-    for(var i = 0;i < 5; i ++){
-        if(i != num){
-            li_list[i].classList.remove("active");
-        }
-    }
-    li_list[num].classList.add("active");
-
-}
-
-$("#li_list ul li").click(function(){
+//滑动导航栏选中
+$("#li_list ul li").click(function () {
     $(this).siblings('li').removeClass('li_click');  // 删除其他兄弟元素的样式
     $(this).addClass('li_click');
 });
