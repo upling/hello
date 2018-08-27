@@ -53,16 +53,14 @@ function DrawWeight(yData, xData, yAxisName) {
                 show: true
             }
         },
-        
+
     };
 
     return option
 }
-
-
-
 //重量
 function ChartWeight() {
+    addClass(0);
     var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
@@ -73,8 +71,8 @@ function ChartWeight() {
 }
 //脂肪率
 function ChartFat() {
-
-    var ydata = [];
+    addClass(1);
+    var ydata = []; 
     var xdata = [];
     for (var i = 1; i < 31; i++) {
         ydata.push(30 + Math.random().toFixed(2));
@@ -86,7 +84,7 @@ function ChartFat() {
 
 //肌肉量
 function ChartMusle() {
-
+    addClass(2);
     var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
@@ -101,7 +99,7 @@ function ChartMusle() {
 //水分率
 function ChartWater() {
 
-
+    addClass(3);
     var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
@@ -115,7 +113,7 @@ function ChartWater() {
 
 //骨量
 function ChartBound() {
-
+    addClass(4);
     var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
@@ -138,4 +136,15 @@ window.onresize = function () {
     docChart.style.width = (document.body.clientWidth)
     docChart.style.height = '300px'
     myChart.resize();
+}
+
+function addClass(num) {
+    var li_list = document.getElementsByTagName("li");
+    for(var i = 0;i < 5; i ++){
+        if(i != num){
+            li_list[i].classList.remove("active");
+        }
+    }
+    li_list[num].classList.add("active");
+
 }
