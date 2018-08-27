@@ -34,10 +34,10 @@ body {
     height: 100%;
     margin: 0 auto;
 
-    overflow: scroll;
+    overflow: auto;
 }
 ul {
-    width: 100%;
+    width: 90%;
     list-style: none; 
 }
 
