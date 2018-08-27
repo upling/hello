@@ -37,21 +37,22 @@ body {
     overflow: auto;
 }
 ul {
-    width: 600px;
+    width: 450px;
     list-style: none; 
 }
 
-li {
+li{
     display: inline-block;
     width: 60px;
     height: 30px;
-    background: blue;
-    color:black;
     line-height: 30px;
     text-align: center;
-
+    
 }
 
-li:nth-child(2n) {
-    background: green;
+.li_click{
+
+    text-decoration:underline;
+    color:#FF5A8A;
+    border-bottom: 2px solid #FF5A8A;
 }

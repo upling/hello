@@ -124,13 +124,13 @@ function ChartBound() {
     myChart.setOption(DrawWeight(ydata, xdata, "骨量"));
 }
 
-
+/*
 document.getElementById("li_1").addEventListener("click", ChartWeight, false)
 document.getElementById("li_2").addEventListener("click", ChartFat, false)
 document.getElementById("li_3").addEventListener("click", ChartMusle, false)
 document.getElementById("li_4").addEventListener("click", ChartWater, false)
 document.getElementById("li_5").addEventListener("click", ChartBound, false)
-
+*/
 ChartWeight();
 window.onresize = function () {
     docChart.style.width = (document.body.clientWidth)
@@ -148,3 +148,8 @@ function addClass(num) {
     li_list[num].classList.add("active");
 
 }
+
+$("#li_list ul li").click(function(){
+    $(this).siblings('li').removeClass('li_click');  // 删除其他兄弟元素的样式
+    $(this).addClass('li_click');
+});
