@@ -37,13 +37,13 @@ body {
     overflow: auto;
 }
 ul {
-    width: 90%;
+    width: 600px;
     list-style: none; 
 }
 
 li {
     display: inline-block;
-    width: 50px;
+    width: 60px;
     height: 30px;
     background: blue;
     color:black;
