@@ -2,7 +2,7 @@
 
 var docChart = document.getElementById("main")
 docChart.style.width = (document.body.clientWidth)
-docChart.style.height = '400px'
+docChart.style.height = '300px'
 var myChart = echarts.init(docChart);
 
 function DrawWeight(yData, xData, xAxisName, yAxisName) {
@@ -136,18 +136,12 @@ function DrawWeight(yData, xData, xAxisName, yAxisName) {
 
 //重量
 function ChartWeight() {
-    //var width = docChart.style.width = $("chart_box").css("style", "width")
-    //var height = docChart.style.height = $("chart_box").css("style", "height")
-    alert(width);
-    alert(height);
     var ydata = [];
     var xdata = [];
     for (var i = 1; i < 31; i++) {
         ydata.push(50 + Math.random());
         xdata.push("2018-08-" + i);
-
     }
-
     myChart.setOption(DrawWeight(ydata, xdata, "日期", "体重(kg)"));
 }
 //脂肪率
@@ -215,6 +209,6 @@ document.getElementById("li_5").addEventListener("click", ChartBound, false)
 window.o
 window.onresize = function () {
     docChart.style.width = (document.body.clientWidth)
-    docChart.style.height = '400px'
+    docChart.style.height = '300px'
     myChart.resize();
 }
