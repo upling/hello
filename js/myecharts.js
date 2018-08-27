@@ -53,6 +53,13 @@ function DrawWeight(yData, xData, yAxisName) {
                 show: true
             }
         },
+        media:[
+            {
+                option:{
+                    series:{left: '1%', right:'1%'}
+                }
+            }
+        ],
 
     };
 
