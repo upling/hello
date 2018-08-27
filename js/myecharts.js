@@ -50,23 +50,79 @@ function DrawWeight(yData, xData, xAxisName, yAxisName) {
                 show: true
             }
         },
+        /*
         media: [
             {
-                //条件
-                query: {
-                    maxWidth: 200,
-                },
-                //满足条件下的option
                 option: {
                     legend: {
-                        right: 'center',
-                        bottom: 0,
-                        orient: 'horizontal'
-                    }
+                        orient: 'horizontal',
+                        left: 'right',
+                        itemGap: 10
+                    },
+                    xAxis: {
+                        nameLocation: 'end',
+                        nameGap: 10,
+                        splitNumber: 5,
+                    },
+                    series: [
+                        { name: xAxisName, center: ['75%', '20%'], radius: '28%' },
+                        { name: yAxisName, center: ['75%', '20%'], radius: '28%' }
+                    ]
+                }
+            },
+            {
+                query: { maxWidth: 670, minWidth: 550 },
+                option: {
+                    legend: {
+                        orient: 'horizontal',
+                        left: 200,
+                        itemGap: 5,
+                    },
+                    grid: {
+                        left: '10%',
+                        top: 80,
+                        right: 90,
+                        bottom: 100
+                    },
+                    xAxis: {
+                        nameLocation: 'end',
+                        nameGap: 10,
+                        splitNumber: 5,
+                    },
+                    series: [
+                        { name: xAxisName, center: ['75%', '20%'], radius: '28%' },
+
+                    ]
+                }
+            },
+            {
+                query: { maxWidth: 550 },
+                option: {
+                    legend: {
+                        orient: 'vertical',
+                        left: 'right',
+                        itemGap: 5
+                    },
+                    grid: {
+                        left: 55,
+                        top: '32%',
+                        right: 100,
+                        bottom: 50
+                    },
+                    xAxis: {
+                        nameLocation: 'middle',
+                        nameGap: 25,
+                        splitNumber: 3
+                    },
+                    series: [
+                        { name: xAxisName, center: ['45%', '20%'], radius: '28%' },
+                        { name: yAxisName, center: ['45%', '20%'], radius: '28%' }
+                    ]
                 }
             }
         ],
         //options: {}
+        */
     };
 
     return option
@@ -84,7 +140,13 @@ function ChartWeight() {
         xdata.push("2018-08-" + i);
 
     }
+    
     myChart.setOption(DrawWeight(ydata, xdata, "日期", "体重(kg)"));
+    setTimeout(function (){
+        window.onresize = function () {
+            myChart.resize();
+        }
+    });
 
 }
 //脂肪率
@@ -98,6 +160,11 @@ function ChartFat() {
 
     }
     myChart.setOption(DrawWeight(ydata, xdata, "日期", "脂肪率(%)"));
+    setTimeout(function (){
+        window.onresize = function () {
+            myChart.resize();
+        };
+    });
 }
 
 //肌肉量
@@ -110,7 +177,13 @@ function ChartMusle() {
         xdata.push("2018-08-" + i);
 
     }
+
     myChart.setOption(DrawWeight(ydata, xdata, "日期", "脂肪量"));
+    setTimeout(function (){
+        window.onresize = function () {
+            myChart.resize();
+        }
+    });
 }
 
 //水分率
@@ -125,6 +198,11 @@ function ChartWater() {
 
     }
     myChart.setOption(DrawWeight(ydata, xdata, "日期", "水分率"));
+    setTimeout(function (){
+        window.onresize = function () {
+            myChart.resize();
+        }
+    });
 }
 
 
@@ -139,6 +217,12 @@ function ChartBound() {
 
     }
     myChart.setOption(DrawWeight(ydata, xdata, "日期", "骨量"));
+    setTimeout(function (){
+        window.onresize = function () {
+            myChart.resize();
+        }
+    });
+
 
 }
 
@@ -148,6 +232,6 @@ document.getElementById("li_2").addEventListener("click", ChartFat, false)
 document.getElementById("li_3").addEventListener("click", ChartMusle, false)
 document.getElementById("li_4").addEventListener("click", ChartWater, false)
 document.getElementById("li_5").addEventListener("click", ChartBound, false)
-window.addEventListener("resize",function(){              
-    option.chart.resize();
+window.addEventListener("resize", function () {
+    myChart.resize();
 });
