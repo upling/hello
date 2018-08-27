@@ -56,3 +56,11 @@ li{
     color:#FF5A8A;
     border-bottom: 2px solid #FF5A8A;
 }
+
+table{
+    border-top: 0px;
+}
+
+.col-xs-6{
+    text-align: center;
+}
