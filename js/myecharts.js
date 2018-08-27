@@ -148,4 +148,6 @@ document.getElementById("li_2").addEventListener("click", ChartFat, false)
 document.getElementById("li_3").addEventListener("click", ChartMusle, false)
 document.getElementById("li_4").addEventListener("click", ChartWater, false)
 document.getElementById("li_5").addEventListener("click", ChartBound, false)
-window.onresize = myChart.resize;
+window.addEventListener("resize",function(){              
+    option.chart.resize();
+});
