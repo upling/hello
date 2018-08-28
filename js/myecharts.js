@@ -29,7 +29,13 @@ $(function () {
                     type: 'value',
                     max: Math.ceil(Math.max.apply(null, yData)) + 5,
                     min: Math.ceil(Math.min.apply(null, yData)) - 5,
-                    data: yData
+                    data: yData,
+                    axisLine: {
+                        show: false,
+                    },
+                    splitLine:{
+                        opacity:0
+                    }
                 },
                 series: [{
                     data: yData,
@@ -204,13 +210,13 @@ $(function () {
     });
 
     //获取信息
-    function getData(url,cookie) {
+    function getData(url, cookie) {
         $.ajax({
-            type:'POST',
-            url:url,
-            cookie:cookie,
-            dataType:"json",
-            sucess:function(json){
+            type: 'POST',
+            url: url,
+            cookie: cookie,
+            dataType: "json",
+            sucess: function (json) {
 
 
             }
