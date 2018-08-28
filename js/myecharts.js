@@ -147,7 +147,7 @@ $(function () {
 
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 1; i++) {
+        for (var i = 1; i < 2; i++) {
             ydata.push((10 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
@@ -225,6 +225,7 @@ $(function () {
     function isNoData(ydata) {
         if (ydata.length == 0) {
             $("#msg_font").remove();
+            myChart.clear();
             $("#charts_box").append("<p id='msg_font'>暂无数据!<span class=" + "'glyphicon glyphicon-warning-sign'" + " aria-hidden=" + "'true'" + "></span></p>");
             return false;
         } else {
