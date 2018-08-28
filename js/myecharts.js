@@ -98,7 +98,7 @@ $(function () {
     function ChartFat() {
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 1; i++) {
+        for (var i = 1; i < 31; i++) {
             ydata.push((30 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
@@ -114,7 +114,7 @@ $(function () {
 
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 1; i++) {
+        for (var i = 1; i < 31; i++) {
             ydata.push((10 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
@@ -130,7 +130,7 @@ $(function () {
 
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 1; i++) {
+        for (var i = 1; i < 31; i++) {
             ydata.push((30 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
