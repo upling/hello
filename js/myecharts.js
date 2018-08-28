@@ -95,7 +95,7 @@ $(function () {
             xdata.push("2018-08-" + i);
 
         }
-        ShowMessage(ydata, 30, "累计记录天数", "骨量变化量(%)", "最高骨量(kg)", "最低骨量(kg)");
+        ShowMessage(ydata, 30, "累计记录天数", "脂肪率变化量(%)", "最高脂肪率(kg)", "最低脂肪率kg)");
         myChart.setOption(ChartPrams(ydata, xdata, "脂肪率(%)"));
     }
 
