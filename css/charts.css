@@ -66,3 +66,8 @@ table{
     padding-top: 20px;
 }
 
+#msg_font{
+    text-align: center;
+    width: 95%;
+    height: 300;
+}
