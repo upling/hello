@@ -14,7 +14,7 @@ $(function () {
         ChartWeight();
         addListener();
     }
-
+    //折线图参数设置
     function ChartPrams(yData, xData, yAxisName) {
         var option = {
             baseOption: {
@@ -80,10 +80,10 @@ $(function () {
         var ydata = [];
         var xdata = [];
         for (var i = 1; i < 31; i++) {
-            ydata.push(50 + Math.random());
+            ydata.push((50 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
         }
-        ShowMessage(ydata, 30, "累计记录天数", "体重变化量(%)", "最高体重量(kg)", "最低体重量(kg)");
+        ShowMessage(ydata, "累计记录天数", "体重变化量(%)", "最高体重量(kg)", "最低体重量(kg)");
         myChart.setOption(ChartPrams(ydata, xdata, "体重(kg)"));
     }
     //脂肪率
@@ -91,11 +91,11 @@ $(function () {
         var ydata = [];
         var xdata = [];
         for (var i = 1; i < 31; i++) {
-            ydata.push(30 + Math.random().toFixed(2));
+            ydata.push((30 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
         }
-        ShowMessage(ydata, 30, "累计记录天数", "脂肪率变化量(%)", "最高脂肪率(kg)", "最低脂肪率kg)");
+        ShowMessage(ydata, "累计记录天数", "脂肪率变化量(%)", "最高脂肪率(kg)", "最低脂肪率kg)");
         myChart.setOption(ChartPrams(ydata, xdata, "脂肪率(%)"));
     }
 
@@ -105,11 +105,11 @@ $(function () {
         var ydata = [];
         var xdata = [];
         for (var i = 1; i < 31; i++) {
-            ydata.push(10 + Math.random().toFixed(2));
+            ydata.push((10 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
         }
-        ShowMessage(ydata, 30, "累计记录天数", "肌肉量变化量(%)", "最高肌肉量(kg)", "最低肌肉量(kg)");
+        ShowMessage(ydata, "累计记录天数", "肌肉量变化量(%)", "最高肌肉量(kg)", "最低肌肉量(kg)");
         myChart.setOption(ChartPrams(ydata, xdata, "脂肪量"));
     }
 
@@ -119,11 +119,11 @@ $(function () {
         var ydata = [];
         var xdata = [];
         for (var i = 1; i < 31; i++) {
-            ydata.push(30 + Math.random().toFixed(2));
+            ydata.push((30 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
         }
-        ShowMessage(ydata, 30, "累计记录天数", "水分率变化量(%)", "最高水份率(%)", "最低水份率(%)");
+        ShowMessage(ydata, "累计记录天数", "水分率变化量(%)", "最高水份率(%)", "最低水份率(%)");
         myChart.setOption(ChartPrams(ydata, xdata, "水分率"));
     }
 
@@ -133,23 +133,26 @@ $(function () {
 
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 31; i++) {
-            ydata.push(10 + Math.random().toFixed(2));
+        for (var i = 1; i < 5; i++) {
+            ydata.push((10 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
         }
-        ShowMessage(ydata, 30, "累计记录天数", "骨量变化量(%)", "最高骨量(kg)", "最低骨量(kg)");
+        ShowMessage(ydata, "累计记录天数", "骨量变化量(%)", "最高骨量(kg)", "最低骨量(kg)");
         myChart.setOption(ChartPrams(ydata, xdata, "骨量"));
     }
 
-    function ShowMessage(ydata, days, title1, title2, title3, title4) {
+    //数据展示
+    function ShowMessage(ydata, title1, title2, title3, title4) {
         $("#param_form .col-xs-6").each(function (index, item) {
             if (index == 0) {
                 $(this).text("")
-                $(this).append(days)
+                $(this).append(ydata.length)
             } if (index == 1) {
                 $(this).text("")
-                $(this).append(((Math.max.apply(null, ydata) - Math.min.apply(null, ydata)) / Math.min.apply(null, ydata)).toFixed(2))
+                if (ydata.length > 0) {
+                    $(this).append(((Math.max.apply(null, ydata) - Math.min.apply(null, ydata)) / Math.min.apply(null, ydata)).toFixed(2))
+                }
             } if (index == 2) {
                 $(this).text("")
                 $(this).append(title1)
@@ -158,10 +161,14 @@ $(function () {
                 $(this).append(title2)
             } if (index == 4) {
                 $(this).text("")
-                $(this).append(Math.max.apply(null, ydata).toFixed(2))
+                if (ydata.length > 0) {
+                    $(this).append(Math.max.apply(null, ydata).toFixed(2))
+                }
             } if (index == 5) {
                 $(this).text("")
-                $(this).html(Math.min.apply(null, ydata).toFixed(2))
+                if (ydata.length > 0) {
+                    $(this).append(Math.min.apply(null, ydata).toFixed(2))
+                }
             } if (index == 6) {
                 $(this).text("")
                 $(this).append(title3)
@@ -195,4 +202,18 @@ $(function () {
         $(this).siblings('li').removeClass('li_click');  // 删除其他兄弟元素的样式
         $(this).addClass('li_click');
     });
+
+    //获取信息
+    function getData(url,cookie) {
+        $.ajax({
+            type:'POST',
+            url:url,
+            cookie:cookie,
+            dataType:"json",
+            sucess:function(json){
+
+
+            }
+        });
+    }
 });
