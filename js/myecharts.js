@@ -150,7 +150,7 @@ $(function () {
 
     //数据展示
     function ShowMessage(ydata, title1, title2, title3, title4) {
-        $("#param_form .col-xs-6").each(function (index, item) {
+        $("#param_form strong").each(function (index, item) {
             if (index == 0) {
                 $(this).text("")
                 $(this).append(ydata.length)

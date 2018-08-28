@@ -64,15 +64,5 @@ table{
 .col-xs-6{
     text-align: center;
     padding-top: 20px;
-    font-family: sans-serif;
-    font-weight: bold
 }
 
-#cut_off{
-    background-color: #F2F2F2;
-    height: 10px;
-}
-.divider{
-    margin: auto;
-    height: 2px;
-}
