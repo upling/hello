@@ -33,8 +33,8 @@ $(function () {
                     axisLine: {
                         show: false,
                     },
-                    splitLine:{
-                        opacity:0
+                    splitLine: {
+                        opacity: 0
                     }
                 },
                 series: [{
@@ -85,24 +85,28 @@ $(function () {
     function ChartWeight() {
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 31; i++) {
+        for (var i = 1; i < 1; i++) {
             ydata.push((50 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
         }
         ShowMessage(ydata, "累计记录天数", "体重变化量(%)", "最高体重量(kg)", "最低体重量(kg)");
-        myChart.setOption(ChartPrams(ydata, xdata, "体重(kg)"));
+        if (isNoData(ydata)) {
+            myChart.setOption(ChartPrams(ydata, xdata, "体重(kg)"));
+        }
     }
     //脂肪率
     function ChartFat() {
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 31; i++) {
+        for (var i = 1; i < 1; i++) {
             ydata.push((30 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
         }
         ShowMessage(ydata, "累计记录天数", "脂肪率变化量(%)", "最高脂肪率(kg)", "最低脂肪率kg)");
-        myChart.setOption(ChartPrams(ydata, xdata, "脂肪率(%)"));
+        if (isNoData(ydata)) {
+            myChart.setOption(ChartPrams(ydata, xdata, "脂肪率(%)"));
+        }
     }
 
     //肌肉量
@@ -110,13 +114,15 @@ $(function () {
 
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 31; i++) {
+        for (var i = 1; i < 1; i++) {
             ydata.push((10 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
         }
         ShowMessage(ydata, "累计记录天数", "肌肉量变化量(%)", "最高肌肉量(kg)", "最低肌肉量(kg)");
-        myChart.setOption(ChartPrams(ydata, xdata, "脂肪量"));
+        if (isNoData(ydata)) {
+            myChart.setOption(ChartPrams(ydata, xdata, "脂肪量"));
+        }
     }
 
     //水分率
@@ -124,13 +130,15 @@ $(function () {
 
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 31; i++) {
+        for (var i = 1; i < 1; i++) {
             ydata.push((30 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
         }
         ShowMessage(ydata, "累计记录天数", "水分率变化量(%)", "最高水份率(%)", "最低水份率(%)");
-        myChart.setOption(ChartPrams(ydata, xdata, "水分率"));
+        if (isNoData(ydata)) {
+            myChart.setOption(ChartPrams(ydata, xdata, "水分率"));
+        }
     }
 
 
@@ -139,13 +147,15 @@ $(function () {
 
         var ydata = [];
         var xdata = [];
-        for (var i = 1; i < 5; i++) {
+        for (var i = 1; i < 1; i++) {
             ydata.push((10 + Math.random()).toFixed(2));
             xdata.push("2018-08-" + i);
 
         }
         ShowMessage(ydata, "累计记录天数", "骨量变化量(%)", "最高骨量(kg)", "最低骨量(kg)");
-        myChart.setOption(ChartPrams(ydata, xdata, "骨量"));
+        if (isNoData(ydata)) {
+            myChart.setOption(ChartPrams(ydata, xdata, "骨量"));
+        }
     }
 
     //数据展示
@@ -153,7 +163,7 @@ $(function () {
         $("#param_form strong").each(function (index, item) {
             if (index == 0) {
                 $(this).text("")
-                $(this).append(ydata.length)
+                $(this).append(ydata.length);
             } if (index == 1) {
                 $(this).text("")
                 if (ydata.length > 0) {
@@ -186,6 +196,8 @@ $(function () {
 
     }
 
+
+
     //添加监听事件
     function addListener() {
         var li_arr = document.getElementsByTagName("li");
@@ -208,6 +220,18 @@ $(function () {
         $(this).siblings('li').removeClass('li_click');  // 删除其他兄弟元素的样式
         $(this).addClass('li_click');
     });
+
+    //无数据处理
+    function isNoData(ydata) {
+        if (ydata.length == 0) {
+            $("#msg_font").remove();
+            $("#charts_box").append("<p id='msg_font'>暂无数据!<span class=" + "'glyphicon glyphicon-warning-sign'" + " aria-hidden=" + "'true'" + "></span></p>");
+            return false;
+        } else {
+            $("#msg_font").remove();
+            return true;
+        }
+    }
 
     //获取信息
     function getData(url, cookie) {
