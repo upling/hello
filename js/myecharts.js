@@ -1,8 +1,12 @@
 
+//file:myechrts.js
+//auth:lip
+//date:2018-08-28
+//desc:js for echrts html
 $(function () {
 
-    var docChart;//
-    var myChart;
+    var docChart;   //div对象
+    var myChart;    //echart对象
     init();
 
     //初始化charts
@@ -14,6 +18,7 @@ $(function () {
         ChartWeight();
         addListener();
     }
+
     //折线图参数设置
     function ChartPrams(yData, xData, yAxisName) {
         var option = {
@@ -90,7 +95,7 @@ $(function () {
             xdata.push("2018-08-" + i);
         }
         ShowMessage(ydata, "累计记录天数", "体重变化量(%)", "最高体重量(kg)", "最低体重量(kg)");
-        if (isNoData(ydata)) {
+        if (!isNoData(ydata)) {
             myChart.setOption(ChartPrams(ydata, xdata, "体重(kg)"));
         }
     }
@@ -104,7 +109,7 @@ $(function () {
 
         }
         ShowMessage(ydata, "累计记录天数", "脂肪率变化量(%)", "最高脂肪率(kg)", "最低脂肪率kg)");
-        if (isNoData(ydata)) {
+        if (!isNoData(ydata)) {
             myChart.setOption(ChartPrams(ydata, xdata, "脂肪率(%)"));
         }
     }
@@ -120,7 +125,7 @@ $(function () {
 
         }
         ShowMessage(ydata, "累计记录天数", "肌肉量变化量(%)", "最高肌肉量(kg)", "最低肌肉量(kg)");
-        if (isNoData(ydata)) {
+        if (!isNoData(ydata)) {
             myChart.setOption(ChartPrams(ydata, xdata, "脂肪量"));
         }
     }
@@ -136,7 +141,7 @@ $(function () {
 
         }
         ShowMessage(ydata, "累计记录天数", "水分率变化量(%)", "最高水份率(%)", "最低水份率(%)");
-        if (isNoData(ydata)) {
+        if (!isNoData(ydata)) {
             myChart.setOption(ChartPrams(ydata, xdata, "水分率"));
         }
     }
@@ -153,7 +158,7 @@ $(function () {
 
         }
         ShowMessage(ydata, "累计记录天数", "骨量变化量(%)", "最高骨量(kg)", "最低骨量(kg)");
-        if (isNoData(ydata)) {
+        if (!isNoData(ydata)) {
             myChart.setOption(ChartPrams(ydata, xdata, "骨量"));
         }
     }
@@ -227,10 +232,10 @@ $(function () {
             $("#msg_font").remove();
             myChart.clear();
             $("#charts_box").append("<p id='msg_font'>暂无数据!<span class=" + "'glyphicon glyphicon-warning-sign'" + " aria-hidden=" + "'true'" + "></span></p>");
-            return false;
+            return true;
         } else {
             $("#msg_font").remove();
-            return true;
+            return false;
         }
     }
 
